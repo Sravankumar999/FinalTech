@@ -1,16 +1,19 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import React, {useState} from 'react';
+import Header from './components/Header';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import Data from './components/Data';
 
 const App = () => {
+  const [page, setPage] = useState('Dashboard');
+  function handleChangePage(v: String) {
+    setPage(v);
+  }
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <Text>Try editing me! 🎉</Text>
-    </View>
+    <SafeAreaProvider>
+      <Header onChangePage={handleChangePage} />
+      <Data pag={page} />
+    </SafeAreaProvider>
   );
 };
 
