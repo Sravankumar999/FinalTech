@@ -5,14 +5,15 @@ import Data from './components/Data';
 
 const App = () => {
   const [page, setPage] = useState('Dashboard');
-  function handleChangePage(v: String) {
+  function handleChangePage(v: any) {
+    console.log('here');
     setPage(v);
   }
 
   return (
     <SafeAreaProvider>
       <Header onChangePage={handleChangePage} />
-      <Data pag={page} />
+      <Data onChangePage={handleChangePage} pag={page} />
     </SafeAreaProvider>
   );
 };
